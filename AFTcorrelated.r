@@ -4,7 +4,7 @@
 #                                                                  #
 ####################################################################
 
-Simulation code in the Presence of Correlation Between a Covariate Subject to LOD X1 and the Fully Observed Covariate Z
+#Simulation code in the Presence of Correlation Between a Covariate Subject to LOD X1 and the Fully Observed Covariate Z
 #required packages for the simulation.
 library(survival)
 library(mice)
@@ -12,7 +12,7 @@ library(copula)
 
 #The survival package is required for fitting the AFT model and the Cox PH model
 #The mice package is used to impute the missing values by the predictive mean matching (PMM) method.
-The copula package is used to generate the correlated data under the clayton copula.
+#The copula package is used to generate the correlated data under the clayton copula.
 
 #'Define variables:
 #'
