@@ -45,8 +45,9 @@ gen.data.lod.cox <- function (n, mr, lod) {
     if (!(lod %in% c(0,1,2)))    stop("Undefinded LOD type")
     V1 <- 1 * (X1 >= L1 & X1 <= U1)  # 1 => observed, 0 => censored
     V2 <- 1 * (X2 >= L2 & X2 <= U2)   # 1 => observed, 0 => censored
-    ceny <- runif(n, 0, 0.8)
-    Ti <- rweibull(n, 1, 1/4 *exp( - X1 + X2 - Z))
+    ceny <- runif(n, 0, 3)
+    u <- runif(n, 0, 1)
+    Ti <- sqrt(-log(u) * exp(-  X1 + X2 - Z) )
     D <- 1 * (Ti <= ceny) # 1 observed 0 censored
     return(data.frame( Y = pmin(Ti, ceny), Delta = D, V1 , 
     X1 = pmin( pmax(X1, L1), U1), V2 , X2 = pmin( pmax( X2, L2), U2), Z))
